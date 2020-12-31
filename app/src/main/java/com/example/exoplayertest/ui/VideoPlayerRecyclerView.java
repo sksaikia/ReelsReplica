@@ -70,6 +70,7 @@ public class VideoPlayerRecyclerView extends RecyclerView {
 
     // controlling playback state
     private VolumeState volumeState;
+    int targetPosition = 0;
 
     public VideoPlayerRecyclerView(@NonNull Context context) {
         super(context);
@@ -84,11 +85,11 @@ public class VideoPlayerRecyclerView extends RecyclerView {
 
     private void init(Context context){
         this.context = context.getApplicationContext();
-        Display display = ((WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-        Point point = new Point();
-        display.getSize(point);
-        videoSurfaceDefaultHeight = point.x;
-        screenDefaultHeight = point.y;
+//        Display display = ((WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+//        Point point = new Point();
+//        display.getSize(point);
+//        videoSurfaceDefaultHeight = point.x;
+//        screenDefaultHeight = point.y;
 
         videoSurfaceView = new PlayerView(this.context);
         videoSurfaceView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_ZOOM);
@@ -105,6 +106,7 @@ public class VideoPlayerRecyclerView extends RecyclerView {
         videoSurfaceView.setUseController(false);
         videoSurfaceView.setPlayer(videoPlayer);
         setVolumeControl(VolumeState.ON);
+
 
         addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -150,20 +152,12 @@ public class VideoPlayerRecyclerView extends RecyclerView {
         });
 
         videoPlayer.addListener(new Player.EventListener() {
-            @Override
-            public void onTimelineChanged(Timeline timeline, @Nullable Object manifest, int reason) {
-
-            }
 
             @Override
             public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
 
             }
 
-            @Override
-            public void onLoadingChanged(boolean isLoading) {
-
-            }
 
             @Override
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
@@ -222,16 +216,13 @@ public class VideoPlayerRecyclerView extends RecyclerView {
 
             }
 
-            @Override
-            public void onSeekProcessed() {
-
-            }
         });
+
     }
 
     public void playVideo(boolean isEndOfList) {
 
-        int targetPosition;
+
 
        if(!isEndOfList){
            int startPosition = ((LinearLayoutManager) getLayoutManager()).findFirstVisibleItemPosition();

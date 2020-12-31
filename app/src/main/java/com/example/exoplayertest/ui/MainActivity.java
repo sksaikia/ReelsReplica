@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -17,6 +18,7 @@ import com.example.exoplayertest.R;
 import com.example.exoplayertest.data.model.BodyToSend;
 import com.example.exoplayertest.data.model.MainResponseBody;
 import com.example.exoplayertest.data.model.MediaObject;
+import com.google.android.exoplayer2.util.Util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -129,4 +131,21 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
             mRecyclerView.releasePlayer();
         super.onDestroy();
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (Util.SDK_INT < 24) {
+            mRecyclerView.releasePlayer();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (Util.SDK_INT >= 24) {
+            mRecyclerView.releasePlayer();
+        }
+    }
+
 }
