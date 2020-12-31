@@ -5,6 +5,9 @@ import android.app.Application;
 
 
 import com.example.exoplayertest.di.components.DaggerAppComponent;
+import com.google.android.exoplayer2.database.ExoDatabaseProvider;
+import com.google.android.exoplayer2.upstream.cache.LeastRecentlyUsedCacheEvictor;
+import com.google.android.exoplayer2.upstream.cache.SimpleCache;
 
 import javax.inject.Inject;
 
@@ -26,7 +29,10 @@ public class BaseApplication extends Application implements HasActivityInjector 
     @Override
     public void onCreate() {
         super.onCreate();
+
         DaggerAppComponent.builder().application(this).build().inject(this);
+
+
 
     }
 }
