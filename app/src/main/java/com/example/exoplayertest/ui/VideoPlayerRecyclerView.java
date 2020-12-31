@@ -75,7 +75,7 @@ public class VideoPlayerRecyclerView extends RecyclerView {
         super(context);
         init(context);
     }
-
+    //Constructor with Attribute set is required. So that we can make a custom recycler view in our layout
     public VideoPlayerRecyclerView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context);
@@ -233,30 +233,9 @@ public class VideoPlayerRecyclerView extends RecyclerView {
 
         int targetPosition;
 
-        if(!isEndOfList){
-            int startPosition = ((LinearLayoutManager) getLayoutManager()).findFirstVisibleItemPosition();
-            int endPosition = ((LinearLayoutManager) getLayoutManager()).findLastVisibleItemPosition();
-
-            // if there is more than 2 list-items on the screen, set the difference to be 1
-            if (endPosition - startPosition > 1) {
-                endPosition = startPosition + 1;
-            }
-
-            // something is wrong. return.
-            if (startPosition < 0 || endPosition < 0) {
-                return;
-            }
-
-            // if there is more than 1 list-item on the screen
-            if (startPosition != endPosition) {
-                int startPositionVideoHeight = getVisibleVideoSurfaceHeight(startPosition);
-                int endPositionVideoHeight = getVisibleVideoSurfaceHeight(endPosition);
-
-                targetPosition = startPositionVideoHeight > endPositionVideoHeight ? startPosition : endPosition;
-            }
-            else {
-                targetPosition = startPosition;
-            }
+       if(!isEndOfList){
+           int startPosition = ((LinearLayoutManager) getLayoutManager()).findFirstVisibleItemPosition();
+           targetPosition = startPosition;
         }
         else{
             targetPosition = mediaObjects.size() - 1;
@@ -425,13 +404,9 @@ public class VideoPlayerRecyclerView extends RecyclerView {
         if(volumeControl != null){
             volumeControl.bringToFront();
             if(volumeState == VolumeState.OFF){
-//                requestManager.load(R.drawable.ic_volume_off_grey_24dp)
-//                        .into(volumeControl);
                 volumeControl.setImageResource(R.drawable.ic_volume_off_grey_24dp);
             }
             else if(volumeState == VolumeState.ON){
-//                requestManager.load(R.drawable.ic_volumen_up_grey_24dp)
-//                        .into(volumeControl);
                 volumeControl.setImageResource(R.drawable.ic_volumen_up_grey_24dp);
             }
             volumeControl.animate().cancel();
