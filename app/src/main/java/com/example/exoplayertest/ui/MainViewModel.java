@@ -9,7 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.exoplayertest.base.BaseViewModel;
 import com.example.exoplayertest.data.AppDataManager;
-import com.example.exoplayertest.data.model.BodyToSend;
+import com.example.exoplayertest.data.model.AuthBody;
 import com.example.exoplayertest.data.model.MainResponseBody;
 import com.example.exoplayertest.data.model.MediaObject;
 
@@ -46,7 +46,7 @@ public class MainViewModel extends BaseViewModel {
     }
 
 
-    public void getData(BodyToSend authBody){
+    public void getData(AuthBody authBody){
 
 
         Log.d(TAG, "getData: Got here");

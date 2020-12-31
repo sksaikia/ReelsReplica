@@ -16,8 +16,8 @@ import com.example.exoplayertest.data.model.MediaObject;
 
 public class VideoPlayerViewHolder extends RecyclerView.ViewHolder {
     FrameLayout media_container;
-    TextView title;
-    ImageView thumbnail, volumeControl;
+    TextView title,fullname,likes_count;
+    ImageView thumbnail, volumeControl,profilePic,likes_image;
     ProgressBar progressBar;
     View parent;
     RequestManager requestManager;
@@ -30,6 +30,10 @@ public class VideoPlayerViewHolder extends RecyclerView.ViewHolder {
         title = itemView.findViewById(R.id.title);
         progressBar = itemView.findViewById(R.id.progressBar);
         volumeControl = itemView.findViewById(R.id.volume_control);
+        fullname = itemView.findViewById(R.id.name);
+        profilePic = itemView.findViewById(R.id.profile_pic);
+        likes_image = itemView.findViewById(R.id.likes_image);
+        likes_count = itemView.findViewById(R.id.likes_count);
     }
 
     public void onBind(MainResponseBody mainResponseBody) {

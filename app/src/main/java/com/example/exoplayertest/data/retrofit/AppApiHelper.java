@@ -1,6 +1,6 @@
 package com.example.exoplayertest.data.retrofit;
 
-import com.example.exoplayertest.data.model.BodyToSend;
+import com.example.exoplayertest.data.model.AuthBody;
 import com.example.exoplayertest.data.model.MediaObject;
 
 import javax.inject.Inject;
@@ -20,7 +20,7 @@ public class AppApiHelper implements APIInterface{
 
 
     @Override
-    public Observable<Response<MediaObject>> getFeed(BodyToSend authBody) {
+    public Observable<Response<MediaObject>> getFeed(AuthBody authBody) {
         return api.getFeed(authBody);
     }
 }

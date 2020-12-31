@@ -85,11 +85,6 @@ public class VideoPlayerRecyclerView extends RecyclerView {
 
     private void init(Context context){
         this.context = context.getApplicationContext();
-//        Display display = ((WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-//        Point point = new Point();
-//        display.getSize(point);
-//        videoSurfaceDefaultHeight = point.x;
-//        screenDefaultHeight = point.y;
 
         videoSurfaceView = new PlayerView(this.context);
         videoSurfaceView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_ZOOM);

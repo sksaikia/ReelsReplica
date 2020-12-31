@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,21 +8,76 @@
     android:id="@+id/parent"
     android:background="#fff">
 
-    <TextView
-        android:id="@+id/title"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="15dp"
-        android:padding="10dp"
-        android:textColor="#000"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/media_container"
-        android:text="This is the title"/>
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/name"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:layout_alignParentTop="true"
+            android:text="Full name goes here"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp"
+            android:text="Username goes here"
+            android:layout_below="@id/name"/>
+
+
+        <TextView
+            android:id="@+id/likes_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="#000"
+            android:layout_marginRight="5dp"
+            android:textSize="15sp"
+            android:layout_toLeftOf="@id/profile_pic"
+            android:layout_alignParentTop="true"
+            android:text="No of likes"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/love_icon"
+            android:layout_gravity="end|bottom"
+            android:id="@+id/profile_pic"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:animateLayoutChanges="true"
+            android:layout_marginEnd="15dp"
+            android:layout_below="@id/likes_image" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="end|bottom"
+            android:id="@+id/likes_image"
+            android:alpha="0"
+            android:layout_alignParentRight="true"
+            android:animateLayoutChanges="true"
+            android:layout_marginEnd="15dp"
+            android:layout_below="@id/likes_count"
+            android:layout_marginBottom="15dp"/>
+
+
+
+    </RelativeLayout>
+
 
 
     <FrameLayout
@@ -69,10 +123,4 @@
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
+</LinearLayout>

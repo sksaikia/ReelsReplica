@@ -1,5 +1,7 @@
 package com.example.exoplayertest.data.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class MainResponseBody {
 
     private String id;
@@ -8,6 +10,18 @@ public class MainResponseBody {
 
     private String thum;
 
+    private String liked;
+
+    public String getLiked(){
+        return liked;
+    }
+
+    @SerializedName("user_info")
+    public UserInfo userInfo;
+
+    public UserInfo getUserInfo(){
+        return userInfo;
+    }
     public String getId() {
         return id;
     }

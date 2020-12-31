@@ -3,11 +3,9 @@ package com.example.exoplayertest.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -15,13 +13,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.exoplayertest.R;
-import com.example.exoplayertest.data.model.BodyToSend;
+import com.example.exoplayertest.data.model.AuthBody;
 import com.example.exoplayertest.data.model.MainResponseBody;
-import com.example.exoplayertest.data.model.MediaObject;
 import com.google.android.exoplayer2.util.Util;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.inject.Inject;
 
@@ -61,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
 
         mRecyclerView = findViewById(R.id.recycler_view);
 
-        BodyToSend authBody = new BodyToSend();
+        AuthBody authBody = new AuthBody();
 
         viewModel.getData(authBody);
         initRecyclerView();

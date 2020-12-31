@@ -3,7 +3,7 @@ package com.example.exoplayertest.data;
 import android.content.Context;
 
 
-import com.example.exoplayertest.data.model.BodyToSend;
+import com.example.exoplayertest.data.model.AuthBody;
 import com.example.exoplayertest.data.model.MediaObject;
 import com.example.exoplayertest.data.retrofit.AppApiHelper;
 import com.example.exoplayertest.di.scopes.ApplicationContext;
@@ -29,7 +29,7 @@ public class AppDataManager implements AppDataManagerHelper{
 
 
     @Override
-    public Observable<Response<MediaObject>> getFeed(BodyToSend authBody) {
+    public Observable<Response<MediaObject>> getFeed(AuthBody authBody) {
         return apiHelper.getFeed(authBody);
     }
 }

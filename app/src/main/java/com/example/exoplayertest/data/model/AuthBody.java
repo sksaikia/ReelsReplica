@@ -1,6 +1,6 @@
 package com.example.exoplayertest.data.model;
 
-public class BodyToSend {
+public class AuthBody {
 
     private String fb_id = "0";
     private String token = "eynBsaVYwIE:APA91bEmLkA0mold83uPz1N570IZjPGwAUE_o93EkDCPjSZ5-sQRxKRRwAEsSpiGvEOFMq06XQxrCx0k1Kbh8GVjYr3OmDjSGikCiJCReVGsM4-hHvPWgYMOaFrP-9HaO1JfWDg7PgZV";
